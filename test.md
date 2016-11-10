@@ -84,7 +84,31 @@ HashMap线程不安全的，Hashtable线程安全。
 
 > 2.控制器启动web应用
 
+
+
 #########################################################################
 
+# Servlet多线程问题
+Servlet本身是单实例的，这样当多个用户同时访问某个Servlet时，会访问该唯一的Servlet实例中的成员变量，如果对成员变量进行写入工作，那就会导致Servlet的多线程问题，即数据不一致。
+
+解决Servlet多线程同步问题的方案：
+
+> 1，Servlet实现了javax.servlet.singleThreadModel(Servlet2.4中已经废弃该接口)，此时的Servlet容器将保证Servlet实例是以单线程的方式运行，也就是说同一时刻，只会有一个线程运行Servlet的service()方法。   不推荐使用，大大降低了效率。
+> 2，去除实例变量，使用局部变量  推荐
+> 3，使用同步代码块 synchronized{...}  不推荐使用
+
+
+###########################################################################
+
+
+# 重定向与请求转发
+HttpServletResponse对象的sendRedirect(String location)方法称作重定向。如果location地址前面加上"/"，则表示相对于Servlet容器的根来请求，即http://localhost:8080,如果location地址前面没有加上"/"，则表示相对于当前请求的URL来寻找地址。
+
+RequestDispatcher的forward(request,response)方法称作请求转发
+### 请求转发与重定向的区别:
+> 1，请求转发，整个过程处于同一个请求当中
+> 2，重定向，实际上客户端会向服务器端发送两个请求。
+> 3，RequestDispatcher是通过调用HttpServletRequest对象的getRequestDispatcher()方法得到的，是属于请求对象的方法。
+> 4,sendRedirect()是HttpServletResponse对象的方法，即响应对象的方法，既然调用了响应对象的方法，那就表明整个请求过程已经结束了，服务器开始向客户端返回执行的结果。
 
 
