@@ -1,0 +1,46 @@
+Last login: Mon Jan  2 09:38:51 on console
+Poirots-MacBook-Pro:~ poirot$ git clone https://github.com/Tralo/Note.git
+Cloning into 'Note'...
+remote: Counting objects: 54, done.
+remote: Total 54 (delta 0), reused 0 (delta 0), pack-reused 54
+Unpacking objects: 100% (54/54), done.
+Poirots-MacBook-Pro:~ poirot$ ls
+Desktop		Library		Note		git
+Documents	Movies		Pictures	project
+Downloads	Music		Public		w1
+Poirots-MacBook-Pro:~ poirot$ mv Note git/
+Poirots-MacBook-Pro:~ poirot$ cd git/Note/
+Poirots-MacBook-Pro:Note poirot$ vim 2017-01-02.md
+
+
+
+
+
+
+
+
+
+
+
+# 构建者模式定义: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+注意事项： 1构建者模式关注的是零件类型和装配工艺（顺序），这是它与工厂方法模式最
+大不同的地方，虽然同为创建类模式，但是注重点不同。
+
+建造者模式最主要的功能室基本方法已经实现了，通俗地说就是零件的装配，顺序不同产生
+的对象也不同；而工厂方法则重点是创建，创建零件主要是它的主要职责，组装顺序则不是
+它关心的。
+
+
+
+
+
+
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
